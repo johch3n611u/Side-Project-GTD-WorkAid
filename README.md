@@ -1,5 +1,6 @@
 # Studio Backstage
 
+* 2023-0521 [firebase api key rule](https://ithelp.ithome.com.tw/questions/10204590)
 * 2021-1012 color sinper
 * 2021-0614 reduced site bounce rate
 * 2021-0530 GSAP landing page
