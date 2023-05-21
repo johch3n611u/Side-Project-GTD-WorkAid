@@ -1,6 +1,12 @@
 # Studio Backstage
 
+* 2021-1012 color sinper
+* 2021-0614 reduced site bounce rate
+* 2021-0530 GSAP landing page
+* 2021-0427 photo gallery
 * 2021-0224 此處改為紀錄大章節，細節內容直接註解紀錄於程式碼內，從無到有的後台專案
+* 2021-0223 error handler
+* 2021-0215 file architecture / base config / shard module
 
 ## 架構
 
