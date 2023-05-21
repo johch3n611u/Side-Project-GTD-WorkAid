@@ -1,0 +1,53 @@
+<main id="FakeMatExpansionPanel" class="boxshadow">
+    <section (click)="DisplayMode == 'Open' ? DisplayMode = 'Close':DisplayMode = 'Open' ">
+        <span *ngIf="DisplayMode=='Open'" style="padding-right: 1em;" class="material-icons">border_color</span>
+        <span *ngIf="DisplayMode!='Open'" style="padding-right: 1em;" class="material-icons">format_align_justify</span>
+        <h4>{{Title}}</h4>
+    </section>
+    <hr *ngIf="DisplayMode=='Open'">
+    <main *ngIf="DisplayMode=='Open'" style="display: flex;">
+
+        <button mat-stroked-button (click)="IsEdited?IsEdited = false:IsEdited = true">編輯模式</button>
+
+        <div *ngIf="IsEdited">
+            <p>修改或新增都會依照此兩欄傳值</p>
+            <input type="text" placeholder="名稱" [(ngModel)]="NickName">
+            <input type="text" placeholder="網址(資料夾不用填)" [(ngModel)]="Url">
+        </div>
+
+        <div id="ArticleDirectory">
+            <ul><button *ngIf="IsEdited" mat-stroked-button (click)="Create('')">新增</button>
+                <li *ngFor="let item of ArticleDirectory; let i = index">
+                    <div>
+                        <p *ngIf="IsEdited">編號：{{i}}</p>
+                        <a [href]="item.Url">
+                            <p>{{item.NickName}}</p>
+                        </a>
+                        <button *ngIf="IsEdited" mat-stroked-button (click)="Create(i)">新增</button>
+                        <button *ngIf="IsEdited" mat-stroked-button (click)="Delete(i)">刪除</button>
+                        <button *ngIf="IsEdited" mat-stroked-button (click)="Update(i)">編輯</button>
+                    </div>
+                    <ng-container *ngTemplateOutlet="tree; context: { $implicit: item.Children, idx: i }">
+                    </ng-container>
+                </li>
+            </ul>
+
+            <ng-template #tree let-allItems let-idx="idx">
+                <ul>
+                    <li *ngFor="let item of allItems; let n = index">
+                        <p *ngIf="IsEdited">編號：{{idx+'.'+n}}</p>
+                        <a [href]="item.Url">
+                            <p>{{item.NickName}}</p>
+                        </a>
+                        <button *ngIf="IsEdited" mat-stroked-button (click)="Create(idx+'.'+n)">新增</button>
+                        <button *ngIf="IsEdited" mat-stroked-button (click)="Delete(idx+'.'+n)">刪除</button>
+                        <button *ngIf="IsEdited" mat-stroked-button (click)="Update(idx+'.'+n)">編輯</button>
+                        <ng-container *ngTemplateOutlet="tree; context: { $implicit: item.Children, idx: idx + '.' + n }">
+                        </ng-container>
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+
+    </main>
+</main>

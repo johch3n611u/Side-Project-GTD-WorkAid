@@ -1,0 +1,35 @@
+{
+  "uid": "QpjWcyrR9uUtBLKsHxJTBit78F22",
+  "displayName": "劉育誠",
+  "photoURL": "https://lh5.googleusercontent.com/-o10CwO4Cgwo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclWNdJl_1odrHPHN_SOyWG5Gthc7Q/s96-c/photo.jpg",
+  "email": "allen.liu@shinda.com.tw",
+  "emailVerified": true,
+  "phoneNumber": null,
+  "isAnonymous": false,
+  "tenantId": null,
+  "providerData": [
+    {
+      "uid": "103361246212795250724",
+      "displayName": "劉育誠",
+      "photoURL": "https://lh5.googleusercontent.com/-o10CwO4Cgwo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclWNdJl_1odrHPHN_SOyWG5Gthc7Q/s96-c/photo.jpg",
+      "email": "allen.liu@shinda.com.tw",
+      "phoneNumber": null,
+      "providerId": "google.com"
+    }
+  ],
+  "apiKey": "AIzaSyA0HTv4SIfnnbEptOuSnf8wmOGmgMJ0bgE",
+  "appName": "[DEFAULT]",
+  "authDomain": "justdo-1165.firebaseapp.com",
+  "stsTokenManager": {
+    "apiKey": "AIzaSyA0HTv4SIfnnbEptOuSnf8wmOGmgMJ0bgE",
+    "refreshToken": "AOvuKvQYu4s8w8ZRk2N00nc-5pYD1KOxNvdmvOIYN14L3hecwsvCTnwbkZGU5ga4KSYfBHKCv6wiaDmoBgPPiXa8yWmWlrgWZj_drzXY-VluB0w0gMjlIUaLWqkfwmCxN54ohLByViYD_PmY-H5i4V3q1sFm2hVQM0bduU8ucQX4DBfijPulwRISLWhFKMuemOg4FJ_r58FPAkXXax8VtHJosZXqkguZm_bJORRr7HaXV1Ghd9dK1x7kFSAZUHLxlAr5B4cZ_2D8U0h3t64tsahy0GP7NRbQ_uvpxHVoOJZYI6wzRiQbdu6s7rtD6vC0aG3-_YULThUAjLOxtk5f_xoPnwx9z0FmY55gmAJNqEU36k7s2qT-YUMOb77d-ek5hRZ7RzTomCf02HsW4BWCcC2nCHjT01R6Y6L_v5NAx1tv5j-M_N5Ie0azz7C-eMIT3tqpzu9UWxFJBWt3faJWyr1vpPMInZ8MzA",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBlYmMyZmI5N2QyNWE1MmQ5MjJhOGRkNTRiZmQ4MzhhOTk4MjE2MmIiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi5YqJ6IKy6KqgIiwicGljdHVyZSI6Imh0dHBzOi8vbGg1Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8tbzEwQ3dPNENnd28vQUFBQUFBQUFBQUkvQUFBQUFBQUFBQUEvQU1adXVjbFdOZEpsXzFvZHJIUEhOX1NPeVdHNUd0aGM3US9zOTYtYy9waG90by5qcGciLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vanVzdGRvLTExNjUiLCJhdWQiOiJqdXN0ZG8tMTE2NSIsImF1dGhfdGltZSI6MTYxNDA2OTYwMCwidXNlcl9pZCI6IlFwaldjeXJSOXVVdEJMS3NIeEpUQml0NzhGMjIiLCJzdWIiOiJRcGpXY3lyUjl1VXRCTEtzSHhKVEJpdDc4RjIyIiwiaWF0IjoxNjE0MDY5NjAwLCJleHAiOjE2MTQwNzMyMDAsImVtYWlsIjoiYWxsZW4ubGl1QHNoaW5kYS5jb20udHciLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwMzM2MTI0NjIxMjc5NTI1MDcyNCJdLCJlbWFpbCI6WyJhbGxlbi5saXVAc2hpbmRhLmNvbS50dyJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.h4aq3hchojlsR5Bn2pi_W3s_ZUNmp8-4LzVfZvpgb0m6j-OcVeTULmaNWHFfiPdhkcO3rQbPecG8YZHiLn7fVNpYdTwrqYzpJCvcrHbCZ4T8iP7CM9TP8yWWrtQLiHx3348SUqpdDDMdJSoPb8LE3FgHmxiudbnFy1ZS3fD1B1-NXW-KBejVOvqd62j8nQYSv62-q0ecRXpbLW-3IJkeVABo3ftIxP7aKol9VTeyzh7JS7hnSVrKpVrp6D-FsKBpwvJ4PpQ6NapMxdhnu73qBQK3FNkTriYaRvA32VTeyZGsMs6wKbJyaux8iS9fFKaipPDEL4YsiE2QLdu_RYSHbw",
+    "expirationTime": 1614073200450
+  },
+  "redirectEventId": null,
+  "lastLoginAt": "1614069600429",
+  "createdAt": "1614062794502",
+  "multiFactor": {
+    "enrolledFactors": []
+  }
+}

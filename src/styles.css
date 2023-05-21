@@ -1,0 +1,475 @@
+        /* You can add global styles to this file, and also import other style files */
+        
+        @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+        body {
+            margin: 0 !important;
+        }
+        /* 未連結 */
+        
+        .ButtonLink:link {
+            color: #000000;
+            text-decoration: none;
+        }
+        /* 已連結過 */
+        
+        .ButtonLink:visited {
+            color: #000000;
+            text-decoration: none;
+        }
+        /* 滑鼠移至連結 */
+        
+        .ButtonLink:hover {
+            color: #00FF00;
+        }
+        /* 選擇的連結 */
+        
+        .ButtonLink:active {
+            color: #0000FF;
+        }
+        
+        .active-list-item {
+            color: #00FF00 !important;
+        }
+        
+        .SideNavActived {
+            width: 80vw;
+            margin-left: 13vw !important;
+        }
+        
+        .SideNavInactive {
+            width: 100vw;
+        }
+        /* 由子層控制畫面 */
+        
+        mat-dialog-container {
+            padding: 0 !important;
+            border-radius: 10px !important;
+        }
+        
+        mat-dialog-content {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        mat-sidenav-content {
+            height: 100vh !important;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .mat-tab-label {
+            background-color: white;
+        }
+        
+        .SnackBarStyleClass {
+            background-color: rgb(8, 25, 45);
+            color: rgb(224, 60, 138);
+        }
+        
+        .mat-calendar {
+            height: 100% !important;
+        }
+        /* 手機板 */
+        /* https://blog.hinablue.me/css-media-query-tips/ */
+        
+        @media (max-width: 767px) {
+            span {
+                padding-left: 0 !important;
+                /* display: block !important; */
+            }
+            .mat-expansion-panel-body {
+                padding: 0 9px 16px !important;
+            }
+            p {
+                word-break: break-all !important;
+            }
+            mat-toolbar {
+                padding: 0 0 !important;
+            }
+            .page-content {
+                padding: 0 0.8em !important;
+            }
+            mat-panel-description {
+                display: none !important;
+            }
+            .mat-expansion-panel-body>p {
+                padding-left: 0 !important;
+            }
+            .SideNavActived {
+                width: 100vw !important;
+                margin-left: 0 !important;
+            }
+            mat-card {
+                max-width: 90% !important;
+                width: 100vw !important;
+                max-height: 300px !important;
+            }
+            mat-sidenav {
+                width: 50% !important;
+            }
+            .mat-column-Name {
+                width: 100% !important;
+            }
+            .mat-column-Content {
+                width: 100% !important;
+            }
+            .mat-column-StartDate {
+                width: 100% !important;
+            }
+            .mat-column-EndDate {
+                width: 100% !important;
+            }
+            .mat-column-Tags {
+                width: 100% !important;
+            }
+            .mat-column-Tool {
+                width: 100% !important;
+            }
+            tbody {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {}
+        
+        @media (min-width: 768px) and (max-width: 979px) {}
+        
+        @media (min-width: 980px) {}
+        
+        @media (min-width: 1200px) {}
+        
+        table tr td,
+        table tr th {
+            border: 1px solid #1d1e22;
+            padding: 5px;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        @media only screen and (max-width: 992px) {
+            table.responsive-table {
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+                display: block;
+                position: relative;
+                /* sort out borders */
+            }
+            table.responsive-table td:empty:before {
+                content: "\00a0";
+            }
+            table.responsive-table th,
+            table.responsive-table td {
+                margin: 0;
+                vertical-align: top;
+            }
+            table.responsive-table th {
+                text-align: left;
+            }
+            table.responsive-table thead {
+                display: block;
+                float: left;
+            }
+            table.responsive-table thead tr {
+                display: block;
+                padding: 0 10px 0 0;
+            }
+            table.responsive-table thead tr th::before {
+                content: "\00a0";
+            }
+            table.responsive-table tbody {
+                display: block;
+                width: auto;
+                position: relative;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            table.responsive-table tbody tr {
+                display: inline-block;
+                vertical-align: top;
+            }
+            table.responsive-table th {
+                display: block;
+                text-align: right;
+            }
+            table.responsive-table td {
+                display: block;
+                min-height: 1.25em;
+                text-align: left;
+            }
+            table.responsive-table tr {
+                border-bottom: none;
+                padding: 0 10px;
+            }
+            table.responsive-table thead {
+                border: 0;
+                border-right: 1px solid #1d1e22;
+            }
+        }
+        
+        table {
+            width: 100%;
+            margin: 0.5em 0 !important;
+        }
+        
+        th.mat-header-cell,
+        th,
+        td.mat-cell,
+        td {
+            padding: 0.5em !important;
+            border-bottom-color: black;
+        }
+        
+        th {
+            color: rgba(0, 0, 0, .54);
+        }
+        
+        .Loading {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(assets/images/Ajux_loader.gif);
+            background-repeat: repeat;
+        }
+        
+        .AppleTemplate {
+            padding: 5vh 20vw;
+            min-height: 80vh;
+            background-color: rgba(128, 128, 128, 0.2);
+        }
+        
+        .mat-menu-panel {
+            min-height: 0 !important;
+        }
+        
+        blockquote {
+            color: #666;
+            border-left: 4px solid #ddd;
+            padding-left: 20px;
+            margin-left: 0;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        code {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 3px solid #f36d33;
+            color: #666;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: 1em 1.5em;
+            display: block;
+            word-wrap: break-word;
+        }
+        
+        .MainContent {
+            font-size: 21px;
+            line-height: 32px;
+            margin-top: 24px;
+            margin-bottom: -0.46em;
+        }
+        
+        .at-link {
+            border: 1px solid #ddd;
+            background: #f6f6f6;
+            border-radius: 3px;
+            font-size: 14px;
+            padding: .2em 3px;
+            margin: 0;
+        }
+        
+        .MainContent>h2 {
+            margin-bottom: 1.7rem;
+        }
+        
+        .MainContent>h2 {
+            margin-bottom: 1.7rem;
+        }
+        
+        .OneHundredPercentImg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .OnstagePagesHeaderFooter>mat-toolbar {
+            display: flex;
+            text-align: end;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .BannerBox {
+            min-height: 90vh;
+            padding: 0vh 20vw;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .TextBox {
+            color: white;
+            font-size: 2rem;
+            /* background-color: rgba(255, 255, 255, 0.6); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10000;
+            text-shadow: black 0.1em 0.1em 0.2em;
+            border-radius: 25px;
+        }
+        
+        .AnimationBox {
+            height: 75vh;
+        }
+        
+        .FirstButton {
+            margin-left: 1rem;
+            font-size: 1rem;
+            text-shadow: none;
+            /* border: solid .1rem #ec1115; */
+            border-radius: 50px;
+            width: 160px;
+            z-index: 1000;
+            cursor: pointer;
+            background-color: #ec1115;
+            color: white;
+            padding: 0.3rem 1rem;
+        }
+        
+        .FirstButton:hover {
+            color: #ec1115;
+            background-color: white;
+        }
+        
+        .MainContent h2 {
+            margin-top: 5rem;
+        }
+        
+        .SecondButton {
+            margin-left: 1rem;
+            font-size: 1rem;
+            text-shadow: none;
+            /* border: solid .1rem #ec1115; */
+            border-radius: 50px;
+            width: 160px;
+            z-index: 1000;
+            cursor: pointer;
+            background-color: white;
+            color: #ec1115;
+            padding: 0.3rem 1rem;
+            text-align: center;
+        }
+        
+        .SecondButton:hover {
+            color: white;
+            background-color: #ec1115;
+        }
+        /* .SkillBox {
+            height: 100vh;
+            color: white;
+            font-size: 15rem;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+        
+        .FlowBox {
+            height: 120vh;
+            color: white;
+            font-size: 15rem;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .ServicesBox {
+            height: 120vh;
+            color: white;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .AboutBox {
+            height: 120vh;
+            color: white;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .MenuBtn {
+            color: white;
+            text-shadow: black 0.1em 0.1em 0.2em
+        }
+        
+        .DeviceBox {
+            padding: 4rem 4rem 5rem;
+            box-shadow: 0.2rem 0.2rem 2.4rem rgb(0 0 0 / 7%);
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 3rem 1rem;
+            border-radius: .8rem;
+            width: 400px;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 500px;
+        }
+        
+        .DeviceBox>h2 {
+            margin-top: 2rem;
+        }
+        
+        .DeviceBox>p {
+            margin-top: 1.3rem;
+        }
+        
+        .SkillIcon {
+            max-width: 250px;
+            max-height: 250px
+        }
+        
+        .SkillIcon:not(:first-child) {
+            margin-left: 1rem;
+        }
+        
+        .PartyBox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .PartyBox>h2 {
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-top: 1rem;
+            padding: 0.5rem;
+        }
+        
+        .TagBox {
+            display: flex;
+            max-width: 100%;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .TagBox>li:first-child {
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }

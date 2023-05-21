@@ -1,0 +1,38 @@
+<mat-sidenav-container style="height:100vh !important">
+  <mat-sidenav style="width: 13vw" #sideNav="matSidenav" opened="true" mode="side">
+    <app-side-nav (onSideNavToggle)="onSideNavToggle()"></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content [ngClass]="NowSideNavState">
+    <mat-toolbar style="height: 8vh;">
+      <!-- <button (click)="fold()">test</button>
+      <button mat-button (click)="sideNav.toggle();GetNowSideNavState();GetSideNavObject(sideNav)">
+        <i class="material-icons">format_list_bulleted</i>
+      </button> -->
+      <button mat-button (click)="Fold()">
+        <i class="material-icons">format_list_bulleted</i>
+      </button>
+      <span>
+        <a [routerLink]="'/dashboard'" class="ButtonLink">Studio Backstage</a>
+      </span>
+      <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon header-img"
+        aria-label="Example icon-button with share icon">
+        <i class="material-icons">assignment_ind</i>
+      </button>
+      <button (click)='_DialogHelper.ShowGetStartedStep()' mat-icon-button class="example-icon header-img"
+        aria-label="Example icon-button with share icon">
+        <i class="material-icons">help</i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <app-menu></app-menu>
+      </mat-menu>
+      <app-sign-in-img-sticker-helper></app-sign-in-img-sticker-helper>
+      <!-- <span>Welcome!!</span>
+            <span *ngIf='_Email!=null' style="padding-left: 1em;">{{_Email}}</span>
+            <span *ngIf='_Email==null' style="padding-left: 1em;color:red">目前為開發者模式，處於未登入狀態，可能無法寫入資料</span> -->
+
+    </mat-toolbar>
+    <div style="padding: 2em 4em;" class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

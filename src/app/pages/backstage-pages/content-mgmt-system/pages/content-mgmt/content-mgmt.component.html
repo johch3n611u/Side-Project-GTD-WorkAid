@@ -1,0 +1,23 @@
+<mat-expansion-panel hideToggle="false" expanded="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <i style="padding-right: 1em;" class="material-icons">important_devices</i>
+            <h4>文章管理</h4>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-tab-group mat-align-tabs="start">
+        <!-- http://hk.uwenku.com/question/p-ngdxwddt-od.html -->
+        <mat-tab label="草稿">
+            <app-content-table [ComponentType]="_EnumComponentType.Draft"></app-content-table>
+        </mat-tab>
+        <mat-tab label="發佈">
+            <app-content-table [ComponentType]="_EnumComponentType.Publish"></app-content-table>
+        </mat-tab>
+        <mat-tab label="某種 Tags">
+            <!-- <app-work [ComponentType]="_EnumComponentType.Top5"></app-work> -->
+        </mat-tab>
+        <mat-tab label="某種 Tags">
+            <!-- <app-work [ComponentType]="_EnumComponentType.Top5"></app-work> -->
+        </mat-tab>
+    </mat-tab-group>
+</mat-expansion-panel>

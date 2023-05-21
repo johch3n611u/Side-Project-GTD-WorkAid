@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+}
+
+.mat-column-Name {
+    width: 20%;
+}
+
+.mat-column-Content {
+    width: 13%;
+}
+
+.mat-column-StartDate {
+    width: 7%;
+}
+
+.mat-column-EndDate {
+    width: 7%;
+}
+
+.mat-column-Tags {
+    width: 20%;
+}
+
+.mat-column-Tool {
+    width: 20%;
+}

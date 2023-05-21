@@ -1,0 +1,24 @@
+fbase_key: "firebase:authUser:AIzaSyA0HTv4SIfnnbEptOuSnf8wmOGmgMJ0bgE:[DEFAULT]", value: {…
+}
+}
+fbase_key: "firebase:authUser:AIzaSyA0HTv4SIfnnbEptOuSnf8wmOGmgMJ0bgE:[DEFAULT]"
+value:
+apiKey: "AIzaSyA0HTv4SIfnnbEptOuSnf8wmOGmgMJ0bgE"
+appName: "[DEFAULT]"
+authDomain: "justdo-1165.firebaseapp.com"
+createdAt: "1608902310705"
+displayName: "yochen Liu"
+email: "zzz12345688@gmail.com"
+emailVerified: true
+isAnonymous: false
+lastLoginAt: "1614135458626"
+multiFactor: {enrolledFactors: Array(0)
+}
+phoneNumber: null
+photoURL: "https://lh3.googleusercontent.com/a-/AOh14GgS7-Pv2S9wwQ20bIZjf3u7mLMeu4F5b8e7BR1JdA=s96-c"
+providerData: Array(1)
+redirectEventId: null
+stsTokenManager: {apiKey: "AIzaSyA0HTv4SIfnnbEptOuSnf8wmOGmgMJ0bgE", refreshToken: "AOvuKvRAE7a_GuPC7mfrdBSZI4jGgmYnxtLBwgcP9lAvWk9b5x…B-GfGdJ8RjFoqCHYoOnb89P1ayYjimbfHjDau0k9FdO_GyBWQ", accessToken: "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBlYmMyZmI5N2QyNWE1Mm…PqmyX_MxEf-EgeG1mt7DGNepyREqaZDicP8nKR9djNLSafiaw", expirationTime: 1614139058220
+}
+tenantId: null
+uid: "Dgm8lNhFB1NE35sztHG8cQUS4by1"

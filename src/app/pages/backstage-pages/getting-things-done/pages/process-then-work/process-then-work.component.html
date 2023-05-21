@@ -1,0 +1,28 @@
+<mat-expansion-panel hideToggle="false" expanded="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <i style="padding-right: 1em;" class="material-icons">accessibility_new</i>
+            <h4>做事</h4>
+        </mat-panel-title>
+        <mat-panel-description>
+            依照 Top 1-5 做就對了。
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-tab-group mat-align-tabs="start">
+        <!-- http://hk.uwenku.com/question/p-ngdxwddt-od.html -->
+        <mat-tab label="Top 5">
+            <app-work [ComponentType]="_EnumComponentType.Top5"></app-work>
+        </mat-tab>
+        <mat-tab label="已封存">
+            <app-work [ComponentType]="_EnumComponentType.Archived"></app-work>
+        </mat-tab>
+        <mat-tab label="某種 Tags">
+            <!-- <app-work [ComponentType]="_EnumComponentType.Top5"></app-work> -->
+        </mat-tab>
+        <mat-tab label="某種 Tags">
+            <!-- <app-work [ComponentType]="_EnumComponentType.Top5"></app-work> -->
+        </mat-tab>
+    </mat-tab-group>
+</mat-expansion-panel>
+<hr>
+<app-process [ComponentType]="_EnumComponentType.Processed"></app-process>

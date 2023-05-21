@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let Tag of Tags">
+        {{Tag}}
+        <button (click)="Delete()">刪除</button>
+    </li>
+</ul>
+
+<input matInput [(ngModel)]="NewTag" name="NewTag">
+<button (click)="Add()">新增</button>

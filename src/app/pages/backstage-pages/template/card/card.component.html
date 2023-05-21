@@ -1,0 +1,23 @@
+<ng-container *ngFor="let FirebaseModel of FirebaseModels">
+    <mat-card style="min-height: 400px;">
+        <mat-card-header>
+            <div mat-card-avatar></div>
+            <mat-card-title>{{FirebaseModel.Name}}</mat-card-title>
+            <mat-card-subtitle>{{FirebaseModel.SubTitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img style="max-width: 500px!important;;max-height: 500px!important; float: left;padding: 0px 25px 0px 55px;" [src]="FirebaseModel.KeyVision" alt="Photo of a Shiba Inu">
+        <mat-card-content style="padding: 0 4em;">
+            <!-- <p [innerHTML]="GtdTask.Content">
+                https://stackoverflow.com/questions/45351434/safe-value-must-use-property-binding-after-bypass-security-with-domsanitizer
+                {{GtdTask.Content|html}}
+            </p> -->
+            <p>{{FirebaseModel.Summary}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>看更多...</button>
+        </mat-card-actions>
+    </mat-card>
+    <br>
+    <br>
+    <br>
+</ng-container>

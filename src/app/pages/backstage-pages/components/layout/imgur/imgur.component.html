@@ -1,0 +1,24 @@
+<div id="uplaod-wrap" style="padding: 1em;">
+
+    <!-- 選取圖片的 input -->
+    <input id="upload" type="file" accept="image/*" (change)="ImgFileChange($event)">
+
+    <!-- 圖片標題 -->
+    <input id="title" type="text" required placeholder="圖片標題">
+
+    <!-- 圖片描述 -->
+    <input id="des" type="text" required placeholder="圖片描述">
+
+    <!-- 上傳按鈕 -->
+    <button (click)="UploadImgur()" type="button">上傳</button>
+    <img [src]="this.ImgObject.ImgFileThumbnail">
+    <p>{{this.ImgObject.ImgFileSize}}</p>
+    <!-- <p>https://www.letswrite.tw/imgur-api-upload-load/</p> -->
+    <!-- <p>檢測伺服器狀態 https://status.imgur.com/</p> -->
+    <!-- <p>https://liu1165.imgur.com/all/</p> -->
+    <!-- <p>https://apidocs.imgur.com/</p> -->
+    <!-- <p>https://soshace.com/how-to-upload-images-to-a-cloud-storageimgur-in-an-angular-application/</p> -->
+    <p>圖片大小限制為10 MB（非動態圖），當圖片超過1 MB 時，會被強制壓縮到1 MB 以獲得最佳的瀏覽品質，最大的動態圖檔大小為2 MB（例如GIF 和PNG）。</p>
+    <p></p>
+    <p> imgur 不會對圖片流量進行限制，也就是說無論連結到imgur 瀏覽圖片，或是使用直接連結，都是無限流量。</p>
+</div>

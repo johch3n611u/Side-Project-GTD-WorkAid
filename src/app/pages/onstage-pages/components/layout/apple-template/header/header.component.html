@@ -1,0 +1,58 @@
+<mat-toolbar [ngStyle]="{'background-color':RandomColor,'padding':'5vh 20vw'}">
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <i class="material-icons">menu</i>
+  </button> -->
+    <a style="color: white !important;" class="ButtonLink" [routerLink]="'/'">
+        <span style="text-shadow: black 0.1em 0.1em 0.2em">
+      <i class="material-icons">
+        dashboard_customize
+      </i>
+      專業客製化 IT Studio
+    </span>
+    </a>
+    <span style="padding: 0 1em;"> </span>
+    <div style="width: 100%;">
+        <button mat-button class="MenuBtn" (click)="Navigator('AboutBox')">關於</button>|
+        <a style="color: white !important;" class="ButtonLink" [routerLink]="'/articlecatalog'">
+            <button mat-button class="MenuBtn">項目</button>
+        </a>|
+        <button mat-button class="MenuBtn" (click)="Navigator('ServicesBox')">服務</button>|
+        <a style="color: white !important;" class="ButtonLink" [routerLink]="'/articlecatalog'">
+            <button mat-button class="MenuBtn">網誌</button>
+        </a>|
+        <span class="FirstButton" (click)="Navigator('FlowBox')">免費諮詢您的想法</span>
+        <!--
+    <button mat-button (click)="IsSearchOpend==true?IsSearchOpend=false:IsSearchOpend=true"
+      style="color:white ;text-shadow: black 0.1em 0.1em 0.2em">
+      搜尋
+    </button> -->
+
+        <!-- <mat-form-field *ngIf="IsSearchOpend">
+            <mat-label>
+                ...
+            </mat-label>
+            <input type="text" placeholder="" aria-label="Number" matInput>
+            <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+        </mat-form-field>
+        <div></div> -->
+
+        <!-- <span *ngIf="!IsSearchOpend">
+      <button mat-button style="color:white ;text-shadow: black 0.1em 0.1em 0.2em">Tag</button>|
+      <ng-container *ngFor="let Tag of allTags;let i=index">
+        <span style="font-size: 0.5em !important;text-shadow: black 0.1em 0.1em 0.2em" *ngIf="i!=0">、</span>
+        <a style="font-size: 0.5em !important;color: white !important;text-shadow: black 0.1em 0.1em 0.2em">{{Tag}}</a>
+      </ng-container>
+    </span> -->
+
+        <!-- <button mat-button [matMenuTriggerFor]="menu">查詢</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu> -->
+
+    </div>
+</mat-toolbar>

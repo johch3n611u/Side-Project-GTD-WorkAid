@@ -1,0 +1,41 @@
+<div class="AppleTemplate ArtideCatalog">
+    <app-carousel [ShowData]="FirebaseModels"></app-carousel>
+    <ul class="TagBox">
+        <li>Tag |</li>
+        <li *ngFor="let Tag of allTags;let i=index">
+            <span *ngIf="i!=0">、</span>
+            <a style="cursor: pointer; ">{{Tag}}</a>
+        </li>
+    </ul>
+    <ng-container *ngFor="let FirebaseModel of Obs |async">
+        <!-- https://stackoverflow.com/questions/38062702/how-to-pass-a-parameter-to-routerlink-that-is-somewhere-inside-the-url -->
+        <mat-card style="min-height: 320px;cursor: pointer;" [routerLink]="['/newsarticle','Key',FirebaseModel.id]">
+            <img style="max-width: 500px!important;max-height: 280px!important; float: left;padding: 0px 25px 0px 55px;" [src]="FirebaseModel.KeyVision" alt="Photo of Article">
+            <mat-card-content style="padding: 0 4em;">
+                <!-- <p [innerHTML]="GtdTask.Content">
+                https://stackoverflow.com/questions/45351434/safe-value-must-use-property-binding-after-bypass-security-with-domsanitizer
+                {{GtdTask.Content|html}}
+            </p> -->
+                <h2 style="font-size: 24px;font-weight:bold;">
+                    {{FirebaseModel.Name}}
+                </h2>
+                <h5 style="font-size: 18px;color:gray">
+                    {{FirebaseModel.SubTitle}}
+                </h5>
+                <hr>
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip *ngFor="let Tag of FirebaseModel.Tags">{{Tag}}</mat-chip>
+                </mat-chip-list>
+                <br>
+                <p style="height: 130px;overflow: hidden;font-size: 18px;">{{FirebaseModel.DisplaySummary}}...</p>
+                <p *ngIf="FirebaseModel.StartDate!=null" style="text-align: right;">{{FirebaseModel.StartDate|date: 'yyyy-MM-dd'}}</p>
+            </mat-card-content>
+            <mat-card-actions align="end">
+            </mat-card-actions>
+        </mat-card>
+        <br>
+    </ng-container>
+    <!-- https://stackoverflow.com/questions/54367152/how-to-add-mat-paginator-for-mat-cards -->
+    <mat-paginator style="border-radius: 4px; box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);" [pageSizeOptions]="[6, 12, 24, 100]"></mat-paginator>
+
+</div>

@@ -1,0 +1,58 @@
+<marquee>
+    <ng-container *ngFor="let Rule of Rules">
+        {{Rule}}
+    </ng-container>
+</marquee>
+<hr>
+<mat-expansion-panel hideToggle="false" expanded="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <i style="padding-right: 1em;" class="material-icons">accessibility_new</i>
+            <h2>G.T.D</h2>
+        </mat-panel-title>
+        <mat-panel-description>
+            Getting Things Done 主要原則在於通過記錄的方式，把頭腦中的各種任務移出來。不用塞滿各種需要完成的事情，而集中精力在正在完成的事情。
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <hr>
+    <mat-selection-list>
+        <mat-list-item *ngFor="let Rule of Rules">
+            {{Rule}}
+        </mat-list-item>
+    </mat-selection-list>
+</mat-expansion-panel>
+<hr>
+<mat-tab-group mat-align-tabs="start">
+    <!-- http://hk.uwenku.com/question/p-ngdxwddt-od.html -->
+    <mat-tab label="Top 5">
+        <mat-expansion-panel *ngFor="let i of number">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h4>Task {{i}}</h4>
+                </mat-panel-title>
+                <mat-panel-description>
+                    標題
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+            <mat-selection-list #selectlist>
+                <mat-list-option *ngFor="let Rule of Rules">
+                    {{Rule}}
+                </mat-list-option>
+            </mat-selection-list>
+            <hr>
+            <p>
+                Options selected: {{selectlist.selectedOptions.selected.length}}
+            </p>
+        </mat-expansion-panel>
+    </mat-tab>
+    <mat-tab label="某種 Tags">
+
+    </mat-tab>
+    <mat-tab label="某種 Tags">
+
+    </mat-tab>
+    <mat-tab label="某種 Tags">
+
+    </mat-tab>
+</mat-tab-group>

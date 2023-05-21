@@ -1,0 +1,67 @@
+<mat-expansion-panel hideToggle="false" expanded="true" *ngIf="!IsWork" hideToggle="false" expanded="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h4>子項目清單</h4>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <hr>
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>狀態</th>
+                <th>價值</th>
+                <th>標題</th>
+                <th>摘要</th>
+                <th>期限</th>
+                <th>類別</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of _FirebaseModel">
+                <td>{{row.Status}}</td>
+                <td>{{row.DeadLine}} * {{row.Wage}} = {{row.DeadLine * row.Wage}} (HR/TWD)</td>
+                <td>{{row.Name}}</td>
+                <td>{{row.Content}}</td>
+                <td>[ {{row.StartDate|date:'yyyy-MM-dd'}} ] - [ {{row.EndDate|date:'yyyy-MM-dd'}} ]</td>
+                <td>{{row.Tags}}</td>
+                <td><button mat-stroked-button color="primary" (click)='Forwarding(row.id)' align="end">詳細</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="_FirebaseModel.length == 0">目前沒有子任務</p>
+</mat-expansion-panel>
+<!--  -->
+<table class="responsive-table" *ngIf="IsWork">
+    <thead>
+        <tr>
+            <th>狀態</th>
+            <th>價值</th>
+            <th>標題</th>
+            <th>摘要</th>
+            <th>期限</th>
+            <th>類別</th>
+            <th>功能</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of _FirebaseModel">
+            <td>{{row.Status}}</td>
+            <td>{{row.DeadLine}} * {{row.Wage}} = {{row.DeadLine * row.Wage}} (HR/TWD)</td>
+            <td>{{row.Name}}</td>
+            <td>{{row.Content}}</td>
+            <td>[ {{row.StartDate|date:'yyyy-MM-dd'}} ] - [ {{row.EndDate|date:'yyyy-MM-dd'}} ]</td>
+            <td>{{row.Tags}}</td>
+            <td>
+                <button mat-stroked-button color="primary" (click)='Forwarding(row.id)' align="end">詳細</button>
+            </td>
+        </tr>
+        <tr *ngIf="_FirebaseModel.length == 0">
+            <td colspan="7">
+                <h2 style="color: red;">目前無可做之事，請確定目前任務!!!</h2>
+            </td>
+        </tr>
+    </tbody>
+</table>

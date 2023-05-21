@@ -1,0 +1,21 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<div class="StepHeader">
+    <span>{{Title}}</span>
+    <select [(ngModel)]='StepMode' (change)='StepModeChange()'>
+      <option value="GettingThingDone">GettingThingDone</option>
+    </select>
+</div>
+<mat-vertical-stepper #stepper>
+    <mat-step *ngFor="let Step of AllStep">
+        <ng-template matStepLabel>{{Step.StepName}}</ng-template>
+        <div>{{Step.StepContent}}</div>
+        <hr>
+        <div>
+            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+    </mat-step>
+</mat-vertical-stepper>

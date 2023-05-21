@@ -1,0 +1,74 @@
+<main id="FakeMatExpansionPanel" class="boxshadow">
+    <section (click)="DisplayMode == 'Open' ? DisplayMode = 'Close':DisplayMode = 'Open' ">
+        <span *ngIf="DisplayMode=='Open'" style="padding-right: 1em;" class="material-icons">border_color</span>
+        <span *ngIf="DisplayMode!='Open'" style="padding-right: 1em;" class="material-icons">format_align_justify</span>
+        <h4>{{Title}}</h4>
+    </section>
+    <main *ngIf="DisplayMode=='Open'">
+        <hr>
+        <section>
+            <label>圖庫模式：</label>
+            <select [(ngModel)]="EditorMode" (change)="EditorModeChange()">
+        <option value="ImgSource">ImgSource</option>
+        <option value="Imgur">Imgur 匿名上傳</option>
+        <option value="GoogleCloud">GoogleCloud</option>
+        <option value="FirebaseStorage">FirebaseStorage</option>
+      </select>
+            <details style="display: inline;padding-left: 1em;">
+                <summary>注意事項：</summary>
+                <ul style="padding-top: 1em;">
+                    <li>串接相關 更新日期 2021-0321</li>
+                    <li>https://www.blog3c.net/blog/post/299331708#imgur</li>
+                    <li>https://www.letswrite.tw/imgur-api-upload-load/</li>
+                    <li>https://free.com.tw/imgur-pro-free-for-everyone/</li>
+                    <li>https://hackmd.io/@vcJEpSOaRoy7aT_3oIqfvg/HJVtyyBSr</li>
+                    <hr>
+                    <li>串接相關 更新日期 2021-0406</li>
+                    <li>目前在圖庫 API 串接的部分較常用的大概就以下兩種，</li>
+                    <li>以 <a href="https://ithelp.ithome.com.tw/users/20107688/ironman/1507">30 天串接 API 的文章</a>狀況來看，</li>
+                    <li>就算串起來後，維護串接的成本似乎也是蠻高的，它更新你也要更新不然直接錯...</li>
+                    <li>所以決定以 MVP 的方式，除了 " 自改圖 " 到時候須找地方保存外連，圖庫就先以這兩種為主。</li>
+                </ul>
+            </details>
+        </section>
+        <main>
+
+            <section style="padding: 2em;" *ngIf="EditorMode == 'ImgSource'">
+                <span>
+          <a href="https://imgur.com/" target="_blank">
+            Imgur 線上查詢
+          </a>
+        </span>、
+                <span>
+          <a href="https://unsplash.com/" target="_blank">
+            Unsplash 線上查詢
+          </a>
+        </span>
+                <div>
+                    <h4>Imgur 自訂圖庫</h4>
+                    <p>對照片點擊左鍵即可複製到剪貼簿</p>
+                    <div style="flex-wrap: wrap;">
+                        <ng-container *ngFor="let Url of NowOnlineGallery;let i = index;">
+                            <button (click)="Delete(i,Url)"><span class="material-icons">clear</span></button>
+                            <span style="padding: 1em;"></span>
+                            <img [src]="Url" (click)="CopyUrl(Url)" style="width: auto;height: 300px;">
+                        </ng-container>
+                    </div>
+                </div>
+            </section>
+
+            <section *ngIf="EditorMode == 'Imgur'">
+                <app-imgur></app-imgur>
+            </section>
+
+            <!-- <section *ngIf="EditorMode == 'GoogleCloud'">
+        <p>施工中...</p>
+      </section>
+
+      <section *ngIf="EditorMode == 'FirebaseStorage'">
+        <p>施工中...</p>
+      </section> -->
+
+        </main>
+    </main>
+</main>

@@ -1,0 +1,41 @@
+<main id="FakeMatExpansionPanel" class="boxshadow">
+    <section (click)="DisplayMode == 'Open' ? DisplayMode = 'Close':DisplayMode = 'Open' ">
+        <span *ngIf="DisplayMode=='Open'" style="padding-right: 1em;" class="material-icons">border_color</span>
+        <span *ngIf="DisplayMode!='Open'" style="padding-right: 1em;" class="material-icons">format_align_justify</span>
+        <h4>{{Title}}</h4>
+    </section>
+    <main *ngIf="DisplayMode=='Open'">
+        <hr>
+        <section>
+            <label>編輯器模式：</label>
+            <select [(ngModel)]="EditorMode" (change)="EditorModeChange()">
+              <option value="Ckeditor">Ckeditor</option>
+              <option value="Editor.md">Editor.md</option>
+              <option value="Medium">Medium</option>
+            </select>
+            <details style="display: inline;padding-left: 1em;">
+                <summary>注意事項：更新日期 2021-0321</summary>
+                <ul style="padding-top: 1em;">
+                    <li>目前富文本主要使用 ckeditor ag2 套件，此套件為 ckeditor 在包一層 ag2 使用的是 ckeditor 4，原 ckeditor 4 包含蠻多插件功能的，這部分後續有用到在研究以 MVP 為主
+                    </li>
+                    <li>Editor.Md 使用的也是開源套件，但這邊用 js 的方式組合起來，目前尚無 bug 但需要後續觀察</li>
+                    <li>未來有機會在開發類似 Medium WYSIWYG 的套件</li>
+                </ul>
+            </details>
+        </section>
+        <main>
+            <section *ngIf="EditorMode == 'Ckeditor'">
+                <ckeditor style="height: 100vh;" [(ngModel)]="HTMLContent" #myckeditor="ngModel" name="myckeditor" required [config]="ckeConfig" debounce="500" (paste)="onPaste($event)" (change)="onChange($event)">
+                </ckeditor>
+                <div *ngIf="myckeditor.invalid && myckeditor.touched" class="help-block">Required field.</div>
+            </section>
+            <section *ngIf="EditorMode == 'Editor.md'">
+                <!-- 不能 input HTML 會爆版，改丟 Text -->
+                <app-editor-md [MarkdownContent]="MarkdownContent" [ContentText]="TextContent" (onEditorMdChange)="SyncModel($event)"></app-editor-md>
+            </section>
+            <section *ngIf="EditorMode == 'Medium'">
+                施工中...
+            </section>
+        </main>
+    </main>
+</main>

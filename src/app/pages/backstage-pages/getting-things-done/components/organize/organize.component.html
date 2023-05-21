@@ -1,0 +1,106 @@
+<mat-expansion-panel hideToggle="false" expanded="true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <i style="padding-right: 1em;" class="material-icons">accessibility_new</i>
+      <h4>組織</h4>
+    </mat-panel-title>
+    <mat-panel-description>
+      定義專案內容 ( OKR 大拆小 KPI ) ，擬定下一步行動 ( 動詞 )，讓事情能夠直接走起去做。
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <hr>
+  <form *ngIf="IsEdit" class="example-form" role="form" #myForm="ngForm" accept-charset="UTF-8" novalidate>
+    <table class="example-full-width" cellspacing="0" class="responsive-table">
+      <tr class="table-td">
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>狀態</mat-label>
+            <input matInput [(ngModel)]="FirebaseModel.Status" name="Status" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-margin">
+            <mat-label>工時</mat-label>
+            <input matInput type="number" [(ngModel)]="FirebaseModel.DeadLine" name="DeadLine">
+          </mat-form-field>小時
+        </td>
+        <td>
+          <mat-form-field class="example-margin">
+            <mat-label>時薪</mat-label>
+            <input matInput type="number" [(ngModel)]="FirebaseModel.Wage" name="Wage">
+          </mat-form-field>小時
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>標題</mat-label>
+            <input matInput [(ngModel)]="FirebaseModel.Name" name="Name" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>預計期限</mat-label>
+            <mat-date-range-input [formGroup]="Term" [rangePicker]="TermPicker" [comparisonStart]="Term.value.start"
+              [comparisonEnd]="Term.value.end">
+              <input matStartDate placeholder="Start date" formControlName="start" name="StartDate">
+              <input matEndDate placeholder="End date" formControlName="end" name="EndDate">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="TermPicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #TermPicker></mat-date-range-picker>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-chip-list" style="width: 20vw;">
+            <mat-label>類別</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let Tag of Tags" [selectable]="true" [removable]="true" (removed)="remove(Tag)">
+                {{Tag}}
+                <i style="color: red;" matChipRemove>X</i>
+              </mat-chip>
+              <input placeholder="選擇或創建類別..." #TagInput [formControl]="_FormControl" [matAutocomplete]="auto"
+                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)" name="Tags">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let Tag of _FilteredTags|async" [value]="Tag">
+                {{Tag}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <app-image-hosting-tab [Title]="'圖庫'"></app-image-hosting-tab>
+    <div class="form-group has-feedback" [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
+      <ckeditor style="height: 100vh;" [(ngModel)]="FirebaseModel.Content" #myckeditor="ngModel" name="myckeditor"
+        required [config]="ckeConfig" debounce="500" (paste)="onPaste($event)" (change)="onChange($event)">
+      </ckeditor>
+      <div *ngIf="myckeditor.invalid && myckeditor.touched" class="help-block">Required field.</div>
+    </div>
+    <hr>
+    <!-- <h4>預覽</h4>
+        <div style="border-style:double;padding:0.3em" [innerHTML]="this.GtdTask.Content | html"></div>
+        <br> -->
+    <div mat-dialog-actions align="end">
+      <mat-slide-toggle [checked]='IsCoEditing' (change)="CoEditing()">共同編輯模式</mat-slide-toggle>
+      <span style="color: red;margin-right: 1em;">預覽請使用上面套件按鈕</span> <button mat-raised-button color="primary"
+        align="end" (click)="CheckFormThenSubmit()">送出</button>
+    </div>
+  </form>
+  <div *ngIf="!IsEdit">
+    <span>狀態:</span> {{FirebaseModel.Status}}
+    <span>價值:</span> {{FirebaseModel.DeadLine}} * {{FirebaseModel.Wage}} = {{FirebaseModel.DeadLine *
+    FirebaseModel.Wage}} (HR/TWD)
+    <span>標題:</span> {{FirebaseModel.Name}}
+    <span>期限:</span> [ {{FirebaseModel.StartDate|date:'yyyy-MM-dd'}} ] - [ {{FirebaseModel.EndDate|date:'yyyy-MM-dd'}} ]
+    <span>類別:</span> {{FirebaseModel.Tags}}
+    <div style="border-style:double;padding:1em;margin:1em 0" [innerHTML]="FirebaseModel.Content | html"></div>
+    <div mat-dialog-actions align="end">
+      <button [disabled]="FirebaseModel.Status == '編輯中'" mat-raised-button color="primary" align="end"
+        (click)="TurnOnEditMode()">編輯</button>
+    </div>
+  </div>
+
+</mat-expansion-panel>
+<br>
+<app-collect *ngIf="IsEdit" [ComponentType]="_EnumComponentType.Processed"></app-collect>
+<app-work [ComponentType]="_EnumComponentType.Processed" [Key]="Key"></app-work>

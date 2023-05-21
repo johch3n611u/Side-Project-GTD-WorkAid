@@ -1,0 +1,66 @@
+<!-- 參考外國人寫的 -->
+<!-- https://stackoverflow.com/questions/50706638/angular-toggle-child-with-unlimited-nesting/50781767 -->
+<!-- https://ithelp.ithome.com.tw/m/articles/10205829 -->
+
+<!-- <ul>
+  <li *ngFor="let item of myArray; let i = index">
+    <button (click)="toggle[i] = !toggle[i]">{{item.title }} - {{i}}</button>
+    <div *ngIf="item.children && toggle[i]">
+      <ng-container *ngTemplateOutlet="tree; context: { $implicit: item.children, idx: i }">
+      </ng-container>
+    </div>
+  </li>
+</ul>
+
+<ng-template #tree let-allItems let-idx="idx">
+  <ul>
+    <li *ngFor="let item of allItems; let n = index">
+      <button (click)="toggle[idx] = !toggle[idx]">X - {{idx}}</button>
+      ^^^^
+      Parent index
+      <button (click)="toggle[idx + '.' + n] = !toggle[idx + '.' + n]">{{item.title}} - {{ idx + '.' + n}}</button>
+      ^^^^^^^^^^^^^
+      Child index
+      <div *ngIf="item.children && toggle[idx + '.' + n]">
+        <ng-container *ngTemplateOutlet="tree; context: { $implicit: item.children, idx: idx + '.' + n }">
+        </ng-container>
+        ^^^^^^^^^^^^^
+        Child index becomes parent in next iteration
+      </div>
+    </li>
+  </ul>
+</ng-template> -->
+
+<!-- <input type="text" placeholder="名稱" />
+      <input type="text" placeholder="網址(資料夾不用填)" />
+      <button mat-stroked-button ()>修改</button>
+      <button mat-stroked-button (click)="Create($event)">新增</button> -->
+
+<button mat-stroked-button (click)="IsEdited?IsEdited = false:IsEdited = true">編輯模式</button>
+<p>修改或新增都會以已下兩欄傳值</p>
+<input *ngIf="IsEdited" type="text" placeholder="名稱" [(ngModel)]="NickName">
+<input *ngIf="IsEdited" type="text" placeholder="網址(資料夾不用填)" [(ngModel)]="Url">
+<ul><button *ngIf="IsEdited" mat-stroked-button (click)="Create(1)">新增</button>
+  <li *ngFor="let item of TreeDate; let i = index">
+    <div>
+      第 {{i}} 層 <br>
+      內容:{{item.NickName}} <br>
+    </div>
+    <ng-container *ngTemplateOutlet="tree; context: { $implicit: item.Children, idx: i }">
+    </ng-container>
+  </li>
+
+</ul>
+
+<ng-template #tree let-allItems let-idx="idx">
+  <ul>
+    <li *ngFor="let item of allItems; let n = index">
+      上一層:{{idx}} <br>
+      第 {{n}} 層 <br>
+      內容:{{item.NickName}} <br>
+      <button *ngIf="IsEdited" mat-stroked-button (click)="Create(idx+'.'+n)">新增</button>
+      <ng-container *ngTemplateOutlet="tree; context: { $implicit: item.Children, idx: idx + '.' + n }">
+      </ng-container>
+    </li>
+  </ul>
+</ng-template>

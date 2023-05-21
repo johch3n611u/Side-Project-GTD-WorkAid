@@ -1,0 +1,146 @@
+<mat-accordion multi="true" displayMode="flat" (click)="MatAccordionOnClick($event)">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class="material-icons">insights</i> 常用
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <h5>常用服務</h5>
+        <hr>
+        <!-- https://stackoverflow.com/questions/43177742/ngfor-on-ng-template-outputs-nothing-angular2 -->
+        <!-- https://dotblogs.com.tw/wellwind/2017/01/01/angular2-ngfor-vars -->
+        <ng-container *ngFor="let item of SideNavLocalStorage;let RecordIndex = index;">
+            <hr *ngIf="RecordIndex!=0">
+            <a class="ButtonLink" [href]="item.Url">
+                <p>{{item.NickName}}</p>
+            </a>
+        </ng-container>
+        <hr>
+        <h5>友站連結(施工中)</h5>
+        <hr>
+        <a class="ButtonLink" [routerLink]="'/dashboard/pages/linktreemgmt'">
+            <p>連結管理</p>
+        </a>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class="material-icons">work_outline</i> 工具列
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                Just Do It
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <!-- mat list active 應用 https://stackoverflow.com/questions/52593815/how-to-set-color-of-active-item-in-mat-nav-list-in-angular-6 -->
+            <h5>任務管理</h5>
+            <hr>
+            <a routerLinkActive="active-list-item" routerLink="/dashboard/pages/processthenwork">
+                <p>做事 & 處理</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" routerLink="/dashboard/pages/collectthenorganize">
+                <p>蒐集 & 組織</p>
+            </a>
+            <hr>
+            <h5>內容管理</h5>
+            <hr>
+            <a routerLinkActive="active-list-item" routerLink="/dashboard/pages/editcontent">
+                <p>新增文章</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/pages/contentmgmt'">
+                <p>文章管理</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/imagehostingtab'">
+                <p>圖庫元件</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'#'">
+                <p>GA 分析(施工中)</p>
+            </a>
+            <hr>
+            <h5>其他</h5>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" routerLink="/dashboard/pages/tagshelper">
+                <p>標籤管理</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" target="_blank" href="https://console.firebase.google.com/u/1/project/justdo-1165/usage">
+                <p>Firebase 額度查詢</p>
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class="material-icons">tab_unselected</i> 範本參考
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                Under construction
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <h5>功能範本</h5>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/angularfirebase'">
+                <p>AngularFirebase</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/shareservice'">
+                <p>ShareService</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/editormd'">
+                <p>EditorMd</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/editortab'">
+                <p>EditorTab</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/getstarted'">
+                <p>GetStartedStep</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/datatable'">
+                <p>DataTable</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/directorytreemgmt'">
+                <p>DirectorytreeMgmt</p>
+            </a>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/example/shareddatagetstaticjson'">
+                <p>SharedDataGetStaticJson</p>
+            </a>
+            <hr>
+            <h5>版型範本</h5>
+            <hr>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/template/home'">
+                <p>Panel & Tab</p>
+            </a>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/template/card'">
+                <p>Card</p>
+            </a>
+            <a routerLinkActive="active-list-item" class="ButtonLink" [routerLink]="'/dashboard/template/grid'">
+                <p>Grid</p>
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+    <!-- <mat-expansion-panel hideToggle="false" expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class="material-icons">self_improvement</i> 使用者訊息
+            </mat-panel-title>
+            <mat-panel-description>
+                UserInfoLog
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <hr>
+        <p *ngFor="let UserInfoLog of _UserInfoLog">
+            {{UserInfoLog.Email}} ： {{UserInfoLog.State}} <br> {{UserInfoLog.Time}}
+        </p>
+    </mat-expansion-panel> -->
+</mat-accordion>

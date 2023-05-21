@@ -1,0 +1,34 @@
+<div class="AppleTemplate" style="background-color: white;">
+    <h1 style="margin-left: 15%; font-size: 46px;margin-bottom: 0.27em;">{{Article.Name}}</h1>
+    <h5 style="margin-left: 15%; font-size: 30px;">{{Article.SubTitle}}</h5>
+    <h6 style="margin-left: 15%; color: rgba(117, 117, 117, 1);">{{Article.StartDate|date: 'yyyy-MM-dd'}} · {{Article.Author}} </h6>
+    <section style="display: flex;">
+        <div style="width: 15%;"></div>
+        <main style="width: 70%;height: 100%;">
+            <hr>
+            <img class="OneHundredPercentImg" [src]="Article.KeyVision" style="box-shadow: 0 0 5px 0 rgb(0 0 0 / 50%), 0 0 2px 1px rgb(0 0 0 / 10%);" ale="Photo of Article">
+            <hr>
+            <div [innerHTML]="Article.Content" class="MainContent"></div>
+            <br>
+            <br>
+            <!-- https://www.wpchen.net/zh/posts/disqus#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%BE%9E%E5%BE%8C%E8%87%BA%E8%AE%8A%E6%9B%B4_Disqus_%E8%AA%9E%E8%A8%80 -->
+            <h2 style="margin-top: 10rem;">歡迎討論、分享您的意見<span style="font-size: 1rem;margin-left: 1rem;">( 訪客只需點擊姓名並勾選底下選項 "我更想匿名評論" )</span></h2>
+            <hr>
+            <disqus [identifier]="'/Key/'+Key"></disqus>
+        </main>
+        <!-- <section style="width: 30%;height: 100%;margin:1.5em 1em;">
+            <h5>Top 5</h5>
+            <div style="height: 300px; background-color: rgb(177,177,177,0.2);"></div>
+            <h5 *ngIf="Article.ArticleDirectory!=''">導航</h5>
+            <div *ngIf="Article.ArticleDirectory!=''" style="height: 200px; background-color: rgb(177,177,177,0.2);">
+                <app-directory-navigation [ArticleDirectory]="Article.ArticleDirectory"></app-directory-navigation>
+            </div>
+            <h5>FB</h5>
+      <div style="height: 200px; background-color: rgb(177,177,177,0.2);"></div>
+      <h5>Youtube</h5>
+      <div style="height: 100px; background-color: rgb(177,177,177,0.2);"></div>
+      <h5>IG</h5>
+      <div style="height: 200px; background-color: rgb(177,177,177,0.2);"></div>
+        </section> -->
+    </section>
+</div>

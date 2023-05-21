@@ -1,0 +1,104 @@
+<app-goal-text></app-goal-text>
+<hr>
+<form class="example-form" role="form" #myForm="ngForm" accept-charset="UTF-8" novalidate>
+    <mat-expansion-panel hideToggle="false" expanded="true">
+        <mat-expansion-panel-header (click)="DisplayMode?DisplayMode=false:DisplayMode=true">
+            <mat-panel-title>
+                <span *ngIf="!DisplayMode" style="padding-right: 1em;" class="material-icons">border_color</span>
+                <span *ngIf="DisplayMode" style="padding-right: 1em;" class="material-icons">format_align_justify</span>
+                <h4>元資料編輯</h4>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <table class="example-full-width" cellspacing="0" class="responsive-table">
+            <tr class="table-td">
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>狀態</mat-label>
+                        <input matInput [(ngModel)]="_FirebaseModel.Status" name="Status" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>標題</mat-label>
+                        <input matInput [(ngModel)]="_FirebaseModel.Name" name="Name" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-chip-list">
+                        <mat-label>類別</mat-label>
+                        <mat-chip-list #chipList aria-label="Fruit selection">
+                            <mat-chip *ngFor="let Tag of Tags" [selectable]="true" [removable]="true" (removed)="remove(Tag)">
+                                {{Tag}}
+                                <i style="color: red;" matChipRemove>X</i>
+                            </mat-chip>
+                            <input placeholder="選擇或創建類別..." #TagInput [formControl]="_FormControl" [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)" name="Tags">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            <mat-option *ngFor="let Tag of _FilteredTags | async" [value]="Tag">
+                                {{Tag}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </td>
+                <td colspan="2">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>副標題</mat-label>
+                        <input matInput [(ngModel)]="_FirebaseModel.SubTitle" name="SubTitle" required>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr class="table-td">
+                <td>
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label>日期</mat-label>
+                        <input matInput [matDatepicker]="datepicker" [(ngModel)]="_FirebaseModel.StartDate" name="StartDate">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>取消</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>選擇</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <!-- <mat-form-field appearance="fill">
+                        <mat-label>版型(開發中)</mat-label>
+                        <mat-select>
+                            <mat-option value="option1">Test1</mat-option>
+                            <mat-option value="option2">Test2</mat-option>
+                            <mat-option value="option3">Test3</mat-option>
+                        </mat-select>
+                    </mat-form-field> -->
+                    <mat-form-field class="example-full-width">
+                        <mat-label>作者</mat-label>
+                        <input matInput [(ngModel)]="_FirebaseModel.Author" name="Author" required>
+                    </mat-form-field>
+                </td>
+                <td colspan="1">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>摘要</mat-label>
+                        <textarea matInput required [(ngModel)]="_FirebaseModel.Summary" name="Summary"></textarea>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>主視覺</mat-label>
+                        <input matInput placeholder="請填入網址" [(ngModel)]="_FirebaseModel.KeyVision" name="KeyVision" required>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <div mat-dialog-actions align="end">
+            <!-- <mat-slide-toggle [checked]='IsCoEditing' (change)="CoEditing()">共同編輯模式</mat-slide-toggle> -->
+            <span style="color: red;margin-right: 1em;">預覽請使用上面套件按鈕</span>
+            <button mat-raised-button color="warn" align="end" (click)="CheckFormThenSubmit()">存為草稿</button>
+        </div>
+    </mat-expansion-panel>
+    <hr>
+    <app-image-hosting-tab [Title]="'圖庫'"></app-image-hosting-tab>
+    <hr>
+    <app-directorytree-mgmt [(ArticleDirectory)]="ArticleDirectory"></app-directorytree-mgmt>
+    <hr>
+    <app-editor-tab [Title]="'內文編輯'" [MarkdownContent]="MarkdownContent" [HTMLContent]="HTMLContent" (onCotentChange)="SyncEditorModel($event)"></app-editor-tab>
+</form>

@@ -1,0 +1,32 @@
+.mat-expansion-panel {
+    width: 13vw;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.header-img {
+    float: right;
+}
+
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+mat-sidenav-content {
+    position: absolute;
+    padding-top: 64px;
+    height: calc(100vh - 64px);
+}
+
+.SideNavActived {
+    width: 87vw;
+}
+
+.SideNavInactive {
+    width: 100vw;
+}

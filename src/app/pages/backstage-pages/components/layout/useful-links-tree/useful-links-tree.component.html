@@ -1,0 +1,4 @@
+<ul *ngFor="let item of TreeData">
+    <li *ngIf="item.Url==''">{{item.NickName}}</li>
+    <ul *ngIf="item.Url!=''"></ul>
+</ul>

@@ -1,0 +1,30 @@
+<p>AngularFirebase works!</p>
+<!-- async 是Angular提供的pipe，可以用來訂閱Observable，當Destroy時會自動unsubscribe，json也是另一種pipe，可以把物件轉成json顯示出來 -->
+<!-- items: {{items$ | async | json}} -->
+<!-- <br> item: {{item$ | async | json}} -->
+<!-- <br> items {{ServiceItems | async | json}} -->
+<br> items:
+<prettyjson [obj]="items$ | async"></prettyjson>
+<!-- <br> item:
+<prettyjson [obj]="item$ | async"></prettyjson> -->
+<!-- <br> items {{ServiceItems}} -->
+
+<ul>
+  <li *ngFor="let item of items | async">
+    <input type="text" #updatetext [value]="item.text" />
+    <button (click)="updateItem(item.key, updatetext.value)">Update</button>
+    <button (click)="deleteItem(item.key)">Delete</button>
+  </li>
+</ul>
+<input type="text" #newitem />
+<button (click)="addItem(newitem.value)">Add</button>
+<button (click)="deleteEverything()">Delete All</button>
+
+<br>
+
+Orderby fire no desc service... so look outside what i do
+
+
+
+<br>
+SharedServiceTest:{{SharedServiceTest}}

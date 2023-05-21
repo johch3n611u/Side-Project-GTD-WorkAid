@@ -1,0 +1,61 @@
+<mat-expansion-panel hideToggle="false" expanded="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <i style="padding-right: 1em;" class="material-icons">accessibility_new</i>
+            <h4>{{MainTitle}}</h4>
+        </mat-panel-title>
+        <mat-panel-description>
+            {{SubTitle}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <hr>
+    <form class="example-form">
+        <table class="example-full-width" cellspacing="0" class="responsive-table">
+            <tr class="table-td">
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>標題</mat-label>
+                        <input matInput [(ngModel)]="FirebaseModel.Name" name="Name" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>摘要</mat-label>
+                        <input matInput [(ngModel)]="FirebaseModel.Content" name="Content" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>預計期限</mat-label>
+                        <mat-date-range-input [formGroup]="Term" [rangePicker]="TermPicker" [comparisonStart]="Term.value.start" [comparisonEnd]="Term.value.end">
+                            <input matStartDate placeholder="Start date" formControlName="start">
+                            <input matEndDate placeholder="End date" formControlName="end">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="TermPicker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #TermPicker></mat-date-range-picker>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-chip-list">
+                        <mat-label>類別</mat-label>
+                        <mat-chip-list #chipList aria-label="Fruit selection">
+                            <mat-chip *ngFor="let Tag of Tags" [selectable]="true" [removable]="true" (removed)="remove(Tag)">
+                                {{Tag}}
+                                <i style="color: red;" matChipRemove>X</i>
+                            </mat-chip>
+                            <input placeholder="選擇或創建類別..." #TagInput [formControl]="_FormControl" [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            <mat-option *ngFor="let Tag of _FilteredTags|async" [value]="Tag">
+                                {{Tag}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <div mat-dialog-actions align="end">
+            <button mat-raised-button color="primary" align="end" (click)="CheckFormThenSubmit()">送出</button>
+        </div>
+    </form>
+</mat-expansion-panel>
